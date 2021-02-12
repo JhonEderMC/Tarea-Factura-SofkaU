@@ -1,12 +1,18 @@
 package com.todoamil.ventas;
 
+import com.todoamil.productos.Electrodomesticos;
+import com.todoamil.productos.Televisor;
+
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class Ventas {
 
+    private ArrayList productos;
 
-
-
+    public Ventas() {
+        productos = new ArrayList();
+    }
 
     public void menu(){
         Boolean parar = Boolean.TRUE;
@@ -31,13 +37,13 @@ public class Ventas {
                 gestionarTelevisor();
                 return true;
             case 2:
-                gestionarNevera();
+                //gestionarNevera();
                 return true;
             case 3:
-                gestionarElectrodomestico();
+               // gestionarElectrodomestico();
                 return true;
             case 4:
-                mostrarFactura();
+               // mostrarFactura();
                 return true;
             case 5:
                 return false;
@@ -48,7 +54,29 @@ public class Ventas {
     }
 
     private void gestionarTelevisor() {
+       Electrodomesticos electrodomestico = electrodomesticobasico();
+       System.out.println("\nIngrese las pugladas(entero):");
+       Integer pulgadas = inputInteger();
+       System.out.println("\nIngrese Si tiene TDT[Si o No]");
+       String tieneTdt = inputString();
+       boolean tdt = false;
+       if(tieneTdt.equalsIgnoreCase("Si")){
+           tdt = true;
+       }
+       Televisor televisor = new Televisor(electrodomestico.getNombre(), electrodomestico.getConsumo(), electrodomestico.getProcedencia(), pulgadas, tdt);
+       productos.add(televisor);
+    }
 
+    public Electrodomesticos electrodomesticobasico(){
+        System.out.println("\nGestionar Televisor: ");
+        System.out.println("Ingrese el nombre: ");
+        String nombre = inputString();
+        System.out.println("Ingrese el consumo [A, B o C]: ");
+        Character consumo = inputCharacter();
+        System.out.print("Ingre la procedencia [Nacional o Importado]: ");
+        String procedencia = inputString();
+       Electrodomesticos electrodomestico = new Electrodomesticos(nombre, consumo, procedencia);
+       return electrodomestico;
     }
 
 
@@ -56,5 +84,15 @@ public class Ventas {
         Scanner keyBoard = new Scanner(System.in);
         while(!keyBoard.hasNextInt()) keyBoard.next();
         return keyBoard.nextInt();
+    }
+
+    private String inputString(){
+        Scanner keyBoard = new Scanner(System.in);
+        return keyBoard.nextLine();
+    }
+
+    private Character inputCharacter(){
+        Scanner keyBoard = new Scanner(System.in);
+        return (Character) keyBoard.next().charAt(0);//return first character
     }
 }
