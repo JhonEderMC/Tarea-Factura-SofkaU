@@ -1,6 +1,7 @@
 package com.todoamil.ventas;
 
 import com.todoamil.productos.Electrodomesticos;
+import com.todoamil.productos.Nevera;
 import com.todoamil.productos.Televisor;
 
 import java.util.ArrayList;
@@ -19,7 +20,7 @@ public class Ventas {
         do {
             menuLCD();
             Integer opcion = inputInteger();
-           parar = menuSwitch(opcion);
+            parar = menuSwitch(opcion);
         }while(parar);
     }
 
@@ -37,15 +38,15 @@ public class Ventas {
                 gestionarTelevisor();
                 return true;
             case 2:
-                //gestionarNevera();
+                gestionarNevera();
                 return true;
             case 3:
-               // gestionarElectrodomestico();
+                gestionarElectrodomestico();
                 return true;
             case 4:
                // mostrarFactura();
                 return true;
-            case 5:
+            case 5: //salir
                 return false;
             default:
                 System.out.print("\nPorfavor ingrese una opcion correcta");
@@ -55,7 +56,7 @@ public class Ventas {
 
     private void gestionarTelevisor() {
        Electrodomesticos electrodomestico = electrodomesticobasico();
-       System.out.println("\nIngrese las pugladas(entero):");
+       System.out.println("\nIngrese las pulgadas(entero):");
        Integer pulgadas = inputInteger();
        System.out.println("\nIngrese Si tiene TDT[Si o No]");
        String tieneTdt = inputString();
@@ -67,8 +68,20 @@ public class Ventas {
        productos.add(televisor);
     }
 
+    public void gestionarNevera(){
+        Electrodomesticos electrodomestico = electrodomesticobasico();
+        System.out.println("Ingrese la capacidad: ");
+        Integer capacidad = inputInteger();
+        Nevera nevera = new Nevera(electrodomestico.getNombre(), electrodomestico.getConsumo(), electrodomestico.getProcedencia(),capacidad);
+        productos.add(nevera);
+
+    }
+
+    public void gestionarElectrodomestico(){
+        Electrodomesticos electrodomestico = electrodomesticobasico();
+    }
+
     public Electrodomesticos electrodomesticobasico(){
-        System.out.println("\nGestionar Televisor: ");
         System.out.println("Ingrese el nombre: ");
         String nombre = inputString();
         System.out.println("Ingrese el consumo [A, B o C]: ");
