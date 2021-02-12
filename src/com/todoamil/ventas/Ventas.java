@@ -54,7 +54,7 @@ public class Ventas {
         }
     }
 
-    private void gestionarTelevisor() {
+    public void gestionarTelevisor() {
        Electrodomesticos electrodomestico = electrodomesticobasico();
        System.out.println("\nIngrese las pulgadas(entero):");
        Integer pulgadas = inputInteger();
