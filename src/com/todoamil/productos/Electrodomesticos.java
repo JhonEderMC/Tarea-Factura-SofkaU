@@ -1,6 +1,6 @@
 package com.todoamil.productos;
 
-public abstract class Electrodomesticos {
+public class Electrodomesticos {
    private String nombre;
    private Character consumo;
    private String procedencia;
