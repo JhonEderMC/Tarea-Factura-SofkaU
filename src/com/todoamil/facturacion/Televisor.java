@@ -3,7 +3,7 @@ package com.todoamil.facturacion;
 public class Televisor extends Electrodomesticos {
 
     private Integer pulgadas;
-    private boolean tdt;
+    private Boolean tdt;
 
     public Televisor(String nombre, Character consumo, String procedencia, Integer pulgadas, boolean tdt) {
         super(nombre, consumo, procedencia);
