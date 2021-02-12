@@ -4,11 +4,12 @@ package com.todoamil.facturacion;
 
 public class Nevera extends Electrodomesticos {
 
-    private Integer capacidad;
+    private Integer capacidad=0;
 
     public Nevera(String nombre, Character consumo, String procedencia, Integer capacidad) {
         super(nombre, consumo, procedencia);
         this.capacidad = capacidad;
+        super.precio();
         precio();
     }
 
@@ -19,7 +20,7 @@ public class Nevera extends Electrodomesticos {
     public void precio(){
         if (capacidad>120){
             Integer listros= capacidad-120; //cantidad de listros demas que tiene
-            Integer cantidad = capacidad/10;  //veces demas a caborar
+            Integer cantidad = listros/10;  //veces demas a caborar
             Double prec = getPrecio() + cantidad*getPrecio()*0.05;
             setPrecio(prec);
         }

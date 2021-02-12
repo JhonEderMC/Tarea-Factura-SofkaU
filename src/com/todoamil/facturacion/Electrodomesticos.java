@@ -4,13 +4,12 @@ public abstract class Electrodomesticos {
    private String nombre;
    private Character consumo;
    private String procedencia;
-   private  Double precio;
+   private  Double precio =0.0;
 
     public Electrodomesticos(String nombre, Character consumo, String procedencia) {
         this.nombre = nombre;
         this.consumo = consumo;
         this.procedencia = procedencia;
-        precio();
     }
 
     /*
