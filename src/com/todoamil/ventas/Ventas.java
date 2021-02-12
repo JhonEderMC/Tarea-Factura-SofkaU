@@ -9,10 +9,10 @@ import java.util.Scanner;
 
 public class Ventas {
 
-    private ArrayList productos;
+    private ArrayList<Electrodomesticos> productos;
 
     public Ventas() {
-        productos = new ArrayList();
+        productos = new ArrayList<Electrodomesticos>();
     }
 
     public void menu(){
@@ -44,7 +44,7 @@ public class Ventas {
                 gestionarElectrodomestico();
                 return true;
             case 4:
-               // mostrarFactura();
+               mostrarFactura();
                 return true;
             case 5: //salir
                 return false;
@@ -79,6 +79,32 @@ public class Ventas {
 
     public void gestionarElectrodomestico(){
         Electrodomesticos electrodomestico = electrodomesticobasico();
+    }
+
+    public void mostrarFactura(){
+        Double totalElectro=0.0,totalNevera=0.0, totalTelevi=0.0;
+        Double totalElectro2=0.0,totalNevera2=0.0, totalTelevi2=0.0;
+        for(Electrodomesticos electro: productos){
+            if (electro instanceof  Nevera){
+                totalNevera +=electro.getPrecio();
+            } else if(electro instanceof  Televisor){
+                totalTelevi += electro.getPrecio();
+            }else{
+                totalElectro +=electro.getPrecio();
+            }
+        }
+        for (int i=0; i<productos.size();i++){
+            if(productos.get(i).getClass().equals(Nevera.class)){
+                totalNevera2 +=productos.get(i).getPrecio();
+            } if(productos.get(i).getClass().equals(Televisor.class)){
+                totalTelevi2 +=productos.get(i).getPrecio();
+            }else {
+                totalElectro +=productos.get(i).getPrecio();
+            }
+        }
+        System.out.print("\nNevera: "+totalNevera+"\nTelevisor: "+totalTelevi+"\nElectro: "+totalElectro);
+        System.out.print("\nNevera: "+totalNevera2+"\nTelevisor: "+totalTelevi2+"\nElectro: "+totalElectro2);
+
     }
 
     public Electrodomesticos electrodomesticobasico(){
