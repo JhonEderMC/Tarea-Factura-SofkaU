@@ -26,11 +26,19 @@ public class Nevera extends Electrodomesticos {
         }
     }
 
+
     public Integer getCapacidad() {
         return capacidad;
     }
 
     public void setCapacidad(Integer capacidad) {
         this.capacidad = capacidad;
+    }
+
+    @Override
+    public String toString() {
+        return "Nevera{" +
+                "capacidad=" + capacidad +
+                '}';
     }
 }

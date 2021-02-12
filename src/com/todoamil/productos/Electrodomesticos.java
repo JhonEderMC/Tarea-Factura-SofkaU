@@ -81,4 +81,14 @@ public class Electrodomesticos {
     public void setPrecio(Double precio) {
         this.precio = precio;
     }
+
+    @Override
+    public String toString() {
+        return "Electrodomesticos{" +
+                "nombre='" + nombre + '\'' +
+                ", consumo=" + consumo +
+                ", procedencia='" + procedencia + '\'' +
+                ", precio=" + precio +
+                '}';
+    }
 }

@@ -43,4 +43,12 @@ public class Televisor extends Electrodomesticos {
     public void setTdt(boolean tdt) {
         this.tdt = tdt;
     }
+
+    @Override
+    public String toString() {
+        return "Televisor{" +
+                "pulgadas=" + pulgadas +
+                ", tdt=" + tdt +
+                '}';
+    }
 }
