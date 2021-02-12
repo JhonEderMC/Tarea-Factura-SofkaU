@@ -10,13 +10,45 @@ public abstract class Electrodomesticos {
         this.nombre = nombre;
         this.consumo = consumo;
         this.procedencia = procedencia;
+        precio();
     }
 
     /*
         Calcular el precio del electrodomestico
      */
     public void precio(){
+        preciobase(getConsumo(), getProcedencia());
     }
+
+    /*
+        Calcular el precio base del electodomestico
+     */
+    private void preciobase(Character consumo, String procedencia){
+
+        switch (consumo){
+            case 'A':
+                precio += 450000;
+                break;
+            case 'B':
+                precio +=  350000;
+                break;
+            case 'C':
+                precio += 250000;
+            default:
+                System.out.print("Por favor ingrese un consumo correcto en mayuscula (A, B, C)");
+        }
+
+        if (procedencia.equalsIgnoreCase("Importado")){
+            precio += 350000;
+        }else if(procedencia.equalsIgnoreCase("Nacional")){
+            precio += 250000;
+        }else {
+            System.out.print("Por favor ingresar si el producto es Nacional o importado ");
+        }
+
+    }
+
+
 
 
     public String getNombre() {
