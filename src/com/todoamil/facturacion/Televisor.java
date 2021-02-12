@@ -9,6 +9,22 @@ public class Televisor extends Electrodomesticos {
         super(nombre, consumo, procedencia);
         this.pulgadas = pulgadas;
         this.tdt = tdt;
+        precio();
+    }
+
+    /**
+     * Calcular precio del televisor
+     */
+    @Override
+    public void precio() {
+       Double pre = getPrecio();
+       if (pulgadas > 40){ // >40 pulgadas
+           pre +=pre*0.3;
+       }
+       if(tdt){ //si tiene tdt
+           pre +=250000;
+       }
+       setPrecio(pre);
     }
 
     public Integer getPulgadas() {
