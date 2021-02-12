@@ -12,7 +12,7 @@ public class Nevera extends Electrodomesticos {
         precio();
     }
 
-    /*
+    /**
         Calcular el precio de la nevera segun el numero de listros
      */
     @Override

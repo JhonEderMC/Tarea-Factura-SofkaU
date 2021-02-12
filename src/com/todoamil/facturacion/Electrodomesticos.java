@@ -17,7 +17,7 @@ public abstract class Electrodomesticos {
         Calcular el precio del electrodomestico
      */
     public void precio(){
-        preciobase(getConsumo(), getProcedencia());
+        preciobase(this.consumo, this.procedencia);
     }
 
     /*
