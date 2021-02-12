@@ -1,4 +1,4 @@
-package com.todoamil.facturacion;
+package com.todoamil.productos;
 
 public class Televisor extends Electrodomesticos {
 

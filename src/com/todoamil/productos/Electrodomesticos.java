@@ -1,4 +1,4 @@
-package com.todoamil.facturacion;
+package com.todoamil.productos;
 
 public abstract class Electrodomesticos {
    private String nombre;
