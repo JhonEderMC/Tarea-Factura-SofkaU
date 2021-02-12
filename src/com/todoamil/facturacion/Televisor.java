@@ -9,6 +9,7 @@ public class Televisor extends Electrodomesticos {
         super(nombre, consumo, procedencia);
         this.pulgadas = pulgadas;
         this.tdt = tdt;
+        super.precio();
         precio();
     }
 
